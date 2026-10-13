@@ -1,108 +1,56 @@
-**Cloud Native Architect & Agentic AI Platform Engineer**
+# Youngjoon Jeong
 
-- 📍 Seoul, Korea
-- 💼 LinkedIn: [@youngjoonjeong](https://www.linkedin.com/in/youngjoonjeong/)
-- 🌐 Engineering Playbook: [devfloor9.github.io/engineering-playbook](https://devfloor9.github.io/engineering-playbook/)
-- 🐙 GitHub: [@devfloor9](https://github.com/devfloor9)
+Cloud native architect working on Amazon EKS and AI platforms.
 
-## Summary
+[Engineering Playbook](https://devfloor9.github.io/engineering-playbook/)
 
-Building production-grade cloud native platforms at the intersection of Kubernetes and Generative AI. I specialize in Amazon EKS architecture optimization, GPU infrastructure for large-scale model serving, and designing end-to-end Agentic AI platforms that actually work in production.
+I work on Kubernetes platform design, model serving, and day-2 operations for AI workloads. Much of my recent work sits at the boundary between infrastructure and application teams: accelerator capacity, traffic routing, identity, observability, evaluation, and release safety.
 
-My work focuses on turning complex infrastructure challenges into battle-tested engineering patterns — from Cilium networking and Karpenter autoscaling to vLLM/llm-d distributed inference, AWS Neuron/Trainium2 serving, and MCP-based agent orchestration. Beyond infrastructure, I am open-sourcing the **AIDLC (AI Development Lifecycle) × AgenticOps** methodology itself — so the design → construction → operations loop can be closed by agents, not humans at every step. Everything I build gets documented in the [Engineering Playbook](https://devfloor9.github.io/engineering-playbook/), an open knowledge base for the cloud native community.
+I also write implementation notes and architecture guides. I try to separate measured results from calculated examples and proposed designs, and to document the conditions behind each recommendation.
 
-## Key Skills
+## Current work
 
-### Cloud Native Infrastructure
-* Deep expertise in **Amazon EKS** — cluster architecture, networking (Cilium, Gateway API), autoscaling (Karpenter), and operational excellence
-* Node strategy across **EKS Auto Mode / Karpenter / Managed Node Groups + DRA** — including the DRA ↔ Karpenter/Auto Mode incompatibility and MNG-based fallbacks
-* Production experience with **hybrid infrastructure** — EKS Hybrid Nodes, SR-IOV with DGX H200, on-prem/cloud bridging
-* **GitOps-driven operations** with Argo CD, infrastructure as code, and automated deployment pipelines
-* Performance optimization — CNI benchmarking, East-West traffic tuning, CoreDNS optimization
+### [Engineering Playbook](https://github.com/devfloor9/engineering-playbook)
 
-### Agentic AI & GPU Platform Engineering
-* End-to-end **Agentic AI platform** design on Kubernetes — from GPU resource management to agent observability
-* Model serving at scale with **vLLM, llm-d, NVIDIA Dynamo, NeMo Framework**, and MoE architectures
-* **AWS Neuron / Trainium2 / Inferentia2** serving via vLLM + optimum-neuron (Llama 4 Scout/Maverick, BF16)
-* **Inference Gateway** routing, KV Cache-aware scheduling, disaggregated serving, LWS multi-node, Bifrost → Bedrock fallback
-* **Cascade Routing** tuning and **semantic caching** across 3 layers (KV / Prompt / Semantic)
-* **Self-Improving Agent Loop** + continuous training pipeline (Langfuse trace → Ragas/LLM-as-a-Judge → GRPO/DPO → kgateway canary)
-* **Multi-Agent Collaboration** patterns (LangGraph / CrewAI / AutoGen / Strands, Orchestrator/Voting/Debate/Supervisor)
-* RAG pipelines with **Milvus / Qdrant** vector databases, evaluation with **RAGAS + Langfuse Custom Evaluators**
-* **Amazon Bedrock AgentCore** and **MCP (Model Context Protocol)** integration for enterprise agent deployments
+A bilingual reference for AWS, Kubernetes, and AI platform engineering. As of October 2026, it contains 318 Korean source documents with corresponding English pages across EKS, AI platform architecture, model serving, hybrid infrastructure, security, AIDLC, and benchmarks.
 
-### Enterprise AI Platform
-* **AIDLC × AgenticOps**: open-source methodology for closed-loop agentic delivery — design, construction, and operations automated end-to-end (see `oh-my-aidlcops`)
-* **Regulatory Compliance**: EU AI Act, NIST AI RMF 1.1, ISO/IEC 42001, Korean AI Basic Act, ISMS-P, and financial supervisory regulations
-* **Agent Versioning**: prompt registry, Shadow / Canary / A-B / Blue-Green release patterns
-* **AI Gateway Guardrails**: input/output guards with Guardrails AI, NeMo Guardrails, Llama Guard 3, Bedrock Guardrails
+Recent updates include:
 
-### Security & Governance
-* **Identity-First Security** with EKS Pod Identity, IRSA, and Keycloak OIDC + OAuth2-Proxy two-tier flows
-* Runtime threat detection with **GuardDuty Extended Threat Detection**
-* Policy-as-code with **Kyverno**, supply chain security, and compliance automation
+- repository-wide document audits, correction ledgers, and offline checks for published examples;
+- guidance for reasoning and tool-call output integrity;
+- model-serving coverage for vLLM, llm-d, NVIDIA Dynamo, AWS Neuron, inference routing, and cache-aware scheduling; and
+- terminology and style reviews across the Korean and English AIDLC and model-serving sections.
 
-### Workshop & Technical Writing
-* Lead author on the **AWS Workshop Studio** EKS GenAI workshop (LLMs → scalable agent systems) and maintainer of the upstream starter kit it runs on
+The site also publishes [`llms.txt`](https://devfloor9.github.io/engineering-playbook/llms.txt), a combined text export, and a per-page Markdown manifest for documentation tools.
 
-## Tech Stack
+### [sample-oh-my-aidlcops](https://github.com/aws-samples/sample-oh-my-aidlcops)
 
-**Container & Orchestration:** Amazon EKS, EKS Auto Mode, Karpenter, MNG + DRA, Helm, Argo CD
+I contribute to this AWS Samples project for applying the AI Development Lifecycle (AIDLC) to agent-assisted software delivery. It provides installable workflows and plugins for inception, construction, operations, evaluation, and platform setup in Claude Code and Kiro.
 
-**Networking:** Cilium, Gateway API, kgateway, CoreDNS, ALB/NLB, CloudFront + WAF + Shield
+The project began as `oh-my-aidlcops` and now lives in the `aws-samples` organization. My recent work has included plugin packaging, ontology injection, opt-in observability, documentation localization, and CI/link reliability.
 
-**AI/ML Serving:** vLLM, SGLang, llm-d, NVIDIA Dynamo, NeMo Framework, AWS Neuron / Trainium2 / Inferentia2, Amazon Bedrock AgentCore
+### GenAI on Amazon EKS
 
-**AI Gateway:** kgateway + agentgateway, Bifrost, LiteLLM (with Team RBAC), OpenClaw
+I contribute examples and documentation to the EKS GenAI workshop ecosystem:
 
-**AI Agents:** Kagent, MCP (Model Context Protocol), LangGraph, CrewAI, AutoGen, Strands
+- [sample-genai-on-eks-starter-kit](https://github.com/aws-samples/sample-genai-on-eks-starter-kit): merged work includes [Langfuse session and tag propagation](https://github.com/aws-samples/sample-genai-on-eks-starter-kit/pull/141) and [OpenClaw orchestrator examples](https://github.com/aws-samples/sample-genai-on-eks-starter-kit/pull/87).
+- [awslabs/ai-on-eks](https://github.com/awslabs/ai-on-eks) and [ai-on-eks-charts](https://github.com/awslabs/ai-on-eks-charts): contributed the [Llama 4 on Trainium2 deployment guide](https://github.com/awslabs/ai-on-eks/pull/276) and its [vLLM Helm values](https://github.com/awslabs/ai-on-eks-charts/pull/12).
 
-**Auth & Identity:** Keycloak, OAuth2-Proxy (OIDC), EKS Pod Identity, IRSA, External Secrets Operator
+## Areas I work in
 
-**GPU Management:** NVIDIA GPU Operator, DCGM, DRA, MIG, KAI Scheduler, NIXL, CRIU (experimental)
+- **EKS platform architecture:** cluster and node design, Cilium and Gateway API networking, Karpenter, EKS Auto Mode, hybrid nodes, and GitOps.
+- **Model serving:** vLLM, llm-d, NVIDIA Dynamo, GPU scheduling, AWS Neuron on Trainium and Inferentia, distributed inference, and request routing.
+- **AI platform operations:** observability, evaluation, prompt and agent versioning, release strategies, and incident response.
+- **Security and governance:** workload identity, policy as code, supply-chain controls, guardrails, and regulatory requirements.
 
-**MLOps:** Kubeflow, MLflow, KServe, SageMaker
+Tools I use regularly include Kubernetes, Helm, Argo CD, Terraform, AWS CDK, Prometheus, OpenTelemetry, Langfuse, Milvus, Qdrant, LangGraph, Strands, and the Model Context Protocol (MCP).
 
-**Observability:** Prometheus, Grafana, AMP/AMG + ADOT, Langfuse, Hubble, OpenTelemetry
+## Writing and workshops
 
-**Security:** Kyverno, GuardDuty, EKS Pod Identity, Harbor
+I write for engineers who need to make or operate a system, not just evaluate a product. My preferred format is a concrete problem, explicit constraints, an implementation path, and a note about what has and has not been verified.
 
-**Vector DB & Evaluation:** Milvus, Qdrant, RAGAS, LLM-as-a-Judge, Langfuse Custom Evaluators
+I am also a lead author of an AWS Workshop Studio course on building generative AI workloads on Amazon EKS and help maintain the starter kit used by the workshop.
 
-**IaC & GitOps:** CDK, Terraform, Argo CD, GitHub Actions
+## Contact
 
-## Featured Projects
-
-### [`oh-my-aidlcops`](https://github.com/devfloor9/oh-my-aidlcops) — AIDLC × AgenticOps plugin marketplace
-Sibling project to [oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode). A Claude Code / Kiro compatible marketplace that layers **AgenticOps** (self-improving loop, autopilot-deploy, incident response, continuous evaluation, cost governance) on top of the [AWS-official AIDLC workflows](https://github.com/awslabs/aidlc-workflows), so the Inception → Construction → Operations lifecycle closes itself. Ships four plugins — `agentic-platform`, `agenticops`, `aidlc-inception`, `aidlc-construction` — and five Tier-0 workflows (`/oma:autopilot`, `/oma:aidlc-loop`, `/oma:agenticops`, `/oma:self-improving`, `/oma:platform-bootstrap`). Built on `awslabs/mcp` hosted MCP servers. *Phase 1 MVP.*
-
-### [`engineering-playbook`](https://github.com/devfloor9/engineering-playbook) — Cloud Native & Agentic AI engineering reference
-77+ production-tested guides across 7 tracks, spanning Agentic AI platforms, EKS best practices, AIDLC/AgenticOps, hybrid infrastructure, security governance, ROSA, and quantitative benchmark reports. Trilingual (Korean / English / Chinese), Docusaurus 3.9.2. The April 2026 restructure introduced a 3-tier hierarchy (foundations / platform-selection / advanced-patterns), the Self-Improving Loop ADR, Continuous Training Pipeline, CRIU GPU Migration, Cascade Routing Tuning, AI Gateway Guardrails, and AWS Neuron Stack documents. Live at [devfloor9.github.io/engineering-playbook](https://devfloor9.github.io/engineering-playbook/).
-
-### [`aws-samples/sample-genai-on-eks-starter-kit`](https://github.com/aws-samples/sample-genai-on-eks-starter-kit) — core maintainer (MEMBER)
-The starter kit that powers the EKS GenAI workshop. Recent contributions:
-- **PR #131** *(in review)* — full demo stack: Code Review MCP (RAG with TEI + Qdrant) + Keycloak OIDC + OAuth2-Proxy + kGateway 2-tier ingress with TLS + LiteLLM Team RBAC + per-user Langfuse tracing via OpenWebUI forward-user-info headers
-- **PR #141** — restore Langfuse `session_id` / `tags` on LangChain traces (Langfuse Python SDK v3 moved these out of `RunnableConfig["tags"]` into `config["metadata"]`), unblocking Module 4 Custom Evaluators
-- **PR #127 / #126** — External Secrets Operator + Amazon Managed Prometheus & Grafana (AMP/AMG) with ADOT collector
-- **PR #87** — OpenClaw AI Agent Orchestrator component, new AI Agent category + DevOps and Doc Writer example agents
-
-### [`awslabs/ai-on-eks`](https://github.com/awslabs/ai-on-eks) + [`ai-on-eks-charts`](https://github.com/awslabs/ai-on-eks-charts) — upstream contributor
-AWS official AI on EKS guides and Helm charts. Contributed the **Llama 4 (Scout & Maverick) on Trainium2 vLLM deployment guide** ([ai-on-eks#276](https://github.com/awslabs/ai-on-eks/pull/276)) and matching Helm values ([ai-on-eks-charts#12](https://github.com/awslabs/ai-on-eks-charts/pull/12)): Karpenter-provisioned `trn2.48xlarge`, AWS Neuron DLC (optimum-neuron 0.4.5, Neuron SDK 2.26.1), `tensor-parallel-size 16` across all 16 Trainium chips, BF16 inference without quantization, ~20 min end-to-end deploy.
-
-## Engineering Playbook Topics
-
-📘 **EKS Best Practices** — Cilium ENI, Gateway API, CoreDNS, Karpenter, cost management, control plane scaling, Pod Identity
-
-📗 **Operations & Observability** — GitOps (Argo CD), node monitoring, EKS debugging & resiliency, Pod health lifecycle
-
-📙 **Agentic AI Platform** — EKS GPU node strategy (Auto Mode / Karpenter / MNG / DRA), vLLM, llm-d, NVIDIA Dynamo, MoE serving, AWS Neuron stack, Inference Optimization (KV Cache-aware / disaggregated serving / LWS multi-node / Bifrost → Bedrock fallback), LLM Gateway 2-tier (kgateway + agentgateway + Bifrost), Kagent, Milvus, RAGAS
-
-📔 **AIDLC & AgenticOps** — AIDLC framework principles, Ontology × Harness, Built-in/Org/Domain extensions, evaluation framework, multi-agent collaboration, agent versioning, regulatory compliance (EU AI Act / NIST AI RMF / ISO 42001 / Korean AI Basic Act), AgenticOps observability and DevOps Guru predictive operations
-
-📕 **Hybrid Infrastructure** — EKS Hybrid Nodes, SR-IOV with DGX H200, file storage strategy, Harbor registry integration
-
-📓 **Security & Governance** — Identity-First Security, GuardDuty Extended Threat Detection, Kyverno, supply chain security, AI Gateway guardrails
-
-📗 **ROSA** — Red Hat OpenShift on AWS installation, security, and compliance
-
-📒 **Benchmark Reports** — CNI performance (VPC CNI vs Cilium), Gateway API implementation, AI/ML workloads, AgentCore vs EKS self-hosted inference, NVIDIA Dynamo, hybrid infrastructure, security operations
+The best place to reach me is [LinkedIn](https://www.linkedin.com/in/youngjoonjeong/). For corrections or questions about a guide, please open an issue in the relevant repository.
